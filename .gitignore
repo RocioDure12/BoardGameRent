@@ -1,0 +1,21 @@
+## Directorios y archivos de compilación de .NET
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+
+## Configuración y archivos locales de Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Archivos de base de datos local SQLite (para no subir tu base de datos de prueba)
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+
+## Archivos del sistema operativo
+Thumbs.db
+.DS_Store
