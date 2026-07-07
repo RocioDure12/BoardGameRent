@@ -1,8 +1,9 @@
-﻿using System;
+﻿using BoardGameRent.Web.Enums;
+using System;
 
 namespace BoardGameRent.Web.Models
 {
-    public class HistorialAlquiler
+    public class RegistroAlquiler
     {
         public int Id { get; set; }
 

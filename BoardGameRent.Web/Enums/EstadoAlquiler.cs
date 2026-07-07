@@ -1,4 +1,4 @@
-﻿namespace BoardGameRent.Web.Models
+﻿namespace BoardGameRent.Web.Enums
 {
     public enum EstadoAlquiler
     {
