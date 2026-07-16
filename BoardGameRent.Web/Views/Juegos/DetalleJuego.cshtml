@@ -1,0 +1,80 @@
+@model BoardGameRent.Web.Models.Juego
+@{
+    ViewData["Title"] = Model.Nombre;
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <!-- Columna Izquierda: Imagen del Juego -->
+        <div class="col-md-5">
+            <img src="@Model.ImageUrl" alt="@Model.Nombre" class="img-fluid rounded shadow-lg" style="width: 100%; object-fit: cover;" />
+        </div>
+
+        <!-- Columna Derecha: Detalles y Formulario Visual -->
+        <div class="col-md-7">
+            <h1 class="display-4 fw-bold">@Model.Nombre</h1>
+
+            <div class="mb-4">
+                <span class="badge bg-success fs-5">$@Model.EstaDisponible? </span>
+                <span class="ms-2 fs-5 text-muted">| Precio base: $@Model.PrecioPorDia / día</span>
+            </div>
+
+            <p class="lead">@Model.Descripcion</p>
+
+            <hr class="my-4" />
+
+            <!-- BLOQUE DE ALQUILER (Visual) -->
+            @if (Model.EstaDisponible)
+            {
+                <!-- Cuando hagas el backend, cambiarás este <div> por un <form> -->
+                <div class="bg-light p-4 rounded shadow-sm">
+                    <div class="mb-3">
+                        <label for="duracionSelect" class="form-label fw-bold">¿Por cuántos días lo quieres?</label>
+                        <select id="duracionSelect" class="form-select form-select-lg" onchange="calcularTotal()">
+                            <option value="3" selected>3 Días</option>
+                            <option value="6">6 Días</option>
+                            <option value="9">9 Días</option>
+                        </select>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center mt-4">
+                        <div>
+                            <span class="text-muted">Total a pagar:</span>
+                            <h2 id="precioTotalDisplay" class="text-primary fw-bold mb-0">
+                                <!-- Aquí se inyecta el precio inicial desde C# (Precio x 3) -->
+                                $@(Model.PrecioPorDia * 3)
+                            </h2>
+                        </div>
+
+                        <!-- Botón temporal -->
+                        <button type="button" class="btn btn-primary btn-lg px-5" onclick="alert('¡El diseño está listo! Pronto conectaremos esto a la base de datos.')">
+                            Alquilar Ahora 🛒
+                        </button>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-warning text-center p-4 rounded shadow-sm" role="alert">
+                    <h4 class="alert-heading fw-bold mb-3">¡Vaya! Alguien se te adelantó 😢</h4>
+                    <p class="mb-0 fs-5">Este juego está alquilado en este momento. Vuelve a revisar en un par de días para ver si ya lo devolvieron.</p>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<!-- LÓGICA JAVASCRIPT PARA LA CALCULADORA EN VIVO -->
+@section Scripts {
+    <script>
+        // Guardamos el precio por día usando C# para inyectarlo en JS
+        const precioPorDia = @Model.PrecioPorDia;
+
+        // Función que se ejecuta cada vez que cambia el Select
+        function calcularTotal() {
+            const diasSeleccionados = document.getElementById("duracionSelect").value;
+            const total = precioPorDia * diasSeleccionados;
+            document.getElementById("precioTotalDisplay").innerText = "$" + total;
+        }
+    </script>
+}

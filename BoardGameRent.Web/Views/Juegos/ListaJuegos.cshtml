@@ -1,0 +1,40 @@
+@model IEnumerable<BoardGameRent.Web.Models.Juego>
+@{
+    ViewData["Title"] = "Lista de Juegos";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Ver detalles</th>
+        
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var juego in Model)
+        {
+            <tr style="@(juego.EstaDisponible ? "" : "opacity: 0.6; filter: grayscale(80%);")">
+                <td>
+                    @* Usamos la etiqueta img e inyectamos la propiedad con '@' *@
+                    <img src="@juego.ImageUrl" alt="Portada de @juego.Nombre" style="width: 80px; height: auto; object-fit: cover; border-radius: 4px;" />
+                </td>
+                <td>
+                    <strong>@juego.Nombre</strong>
+                    @if(!juego.EstaDisponible)
+                    {
+                        <br/><span class="badge bg-danger mt-1">NO DISPONIBLE</span>
+                    }
+                </td>
+                <td>@juego.Descripcion</td>
+                <td>
+                    <a asp-action="DetalleJuego" asp-route-id="@juego.Id" class="btn @(juego.EstaDisponible ? "btn-primary" : "btn-secondary")">Ver detalles</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

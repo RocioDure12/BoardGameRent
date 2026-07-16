@@ -1,8 +1,53 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+@{
+    ViewData["Title"] = "Inicio";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<!-- Hero Section (Portada Principal) -->
+<div class="px-4 py-5 my-5 text-center bg-dark text-white rounded-3 shadow-lg position-relative overflow-hidden"
+     style="background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTixUSuU1NWaIG7nxjC_hbwRU2P5gtOzejO-yTI-vk6FvifccS5GJnsWkk&s=10') center/cover no-repeat; min-height: 60vh; display: flex; flex-direction: column; justify-content: center;">
+
+    <h1 class="display-3 fw-bold mb-4">Tus noches de juegos,<br /> resueltas.</h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4 fw-light">
+            Alquila los mejores juegos de mesa modernos por el tiempo que quieras.
+            Sin suscripciones, sin comprar cajas carísimas. Solo elige, juega y devuelve.
+        </p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-5">
+            <!-- Botón principal que lleva a nuestro controlador de Juegos -->
+            <a asp-controller="Juegos" asp-action="ListaJuegos" class="btn btn-lg px-5 py-3 fw-bold shadow" style="background-color: var(--color-700); color: var(--color-50); border: none;">
+                Explorar Catálogo 🎲
+            </a>
+            <a href="#" class="btn btn-outline-light btn-lg px-4 py-3">
+                ¿Cómo funciona?
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Sección de Beneficios -->
+<div class="container px-4 py-5" id="featured-3">
+    <h2 class="pb-2 border-bottom text-center mb-5">¿Por qué alquilar con nosotros?</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3 text-center">
+        <div class="feature col">
+            <div class="feature-icon d-inline-flex align-items-center justify-content-center bg-primary bg-gradient text-white fs-2 mb-3 rounded-circle p-4 shadow">
+                📦
+            </div>
+            <h3 class="fs-4">Catálogo Premium</h3>
+            <p>Desde Catan hasta juegos expertos. Juegos en perfecto estado, con todas sus piezas contadas.</p>
+        </div>
+        <div class="feature col">
+            <div class="feature-icon d-inline-flex align-items-center justify-content-center bg-success bg-gradient text-white fs-2 mb-3 rounded-circle p-4 shadow">
+                💸
+            </div>
+            <h3 class="fs-4">Precios Accesibles</h3>
+            <p>Paga solo una fracción de lo que cuesta el juego nuevo. Planes flexibles de 3, 6 o 9 días.</p>
+        </div>
+        <div class="feature col">
+            <div class="feature-icon d-inline-flex align-items-center justify-content-center bg-danger bg-gradient text-white fs-2 mb-3 rounded-circle p-4 shadow">
+                ⚡
+            </div>
+            <h3 class="fs-4">Retiro Rápido</h3>
+            <p>Reserva online y retira por el local en 5 minutos con nuestro sistema de código QR.</p>
+        </div>
+    </div>
 </div>

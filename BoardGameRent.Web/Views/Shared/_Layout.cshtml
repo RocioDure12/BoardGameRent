@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -11,20 +11,29 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BoardGameRent.Web</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+        <nav class="navbar navbar-expand-sm navbar-dark mb-4 py-3" style="background-color: var(--color-700); box-shadow: 0 4px 15px rgba(23, 130, 54, 0.4);">
+            <div class="container">
+                <a class="navbar-brand fw-bold fs-4 d-flex align-items-center gap-2" asp-area="" asp-controller="Home" asp-action="Index" style="color: var(--color-50);">
+                    <span style="font-size: 1.5rem;">🎲</span> BoardGameRent
+                </a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                    <ul class="navbar-nav flex-grow-1 ms-md-4">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link fw-bold px-3" asp-area="" asp-controller="Juegos" asp-action="ListaJuegos" style="color: var(--color-100);">Catálogo de Juegos</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav align-items-center gap-3 mt-3 mt-md-0">
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" asp-area="" asp-controller="Usuarios" asp-action="Login" style="color: var(--color-100);">Iniciar Sesión</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="btn fw-bold px-4 rounded-pill" href="#" style="background-color: var(--color-400); color: var(--color-950); border: none; box-shadow: 0 4px 12px rgba(5, 223, 114, 0.3); transition: all 0.2s;">
+                                Registro Rápido
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -37,9 +46,9 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2026 - BoardGameRent.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="border-top footer text-muted bg-light mt-5">
+        <div class="container py-3 text-center">
+            &copy; 2026 - BoardGameRent - Alquiler de Juegos de Mesa
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

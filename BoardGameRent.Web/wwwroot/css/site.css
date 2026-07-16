@@ -1,3 +1,42 @@
+:root {
+  --color-50: #F0FDF4;
+  --color-100: #DCFCE7;
+  --color-200: #B9F8CF;
+  --color-300: #7BF1A8;
+  --color-400: #05DF72;
+  --color-500: #31C950;
+  --color-600: #2AA63E;
+  --color-700: #178236;
+  --color-800: #016630;
+  --color-900: #0D542B;
+  --color-950: #032E15;
+}
+
+/* Forzar las clases de Bootstrap a usar nuestra paleta */
+.btn-primary {
+    background-color: var(--color-600) !important;
+    border-color: var(--color-600) !important;
+    color: white !important;
+}
+.btn-primary:hover {
+    background-color: var(--color-700) !important;
+    border-color: var(--color-700) !important;
+}
+
+.btn-success {
+    background-color: var(--color-500) !important;
+    border-color: var(--color-500) !important;
+    color: white !important;
+}
+.btn-success:hover {
+    background-color: var(--color-600) !important;
+    border-color: var(--color-600) !important;
+}
+
+.bg-dark {
+    background-color: var(--color-950) !important;
+}
+
 html {
   font-size: 14px;
 }
@@ -8,8 +47,9 @@ html {
   }
 }
 
+/* Cambiamos el contorno luminoso azul por uno verde de tu paleta */
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem var(--color-400);
 }
 
 html {
